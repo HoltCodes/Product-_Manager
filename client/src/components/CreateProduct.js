@@ -1,19 +1,40 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 
-const createProduct = (props)=>{
+const CreateProduct = (props) =>{
 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+
+    const submitHandler = (e) =>{
+      e.preventDefault();
+
+      axios.post("http://localhost:8000/api/products", {
+        title,
+        price,
+        description
+      })
+
+      .then((res)=>{
+        console.log(res);
+        console.log(res.data);
+        setTitle("");
+        setPrice("");
+        setDescription("");
+      })
+      .catch((err)=> {
+        console.log(err);
+      });
+    }
     
 
 
     return (
       <div>
           <header>Product Manager</header>
-          <form>
+          <form onSubmit={submitHandler}>
             <div className="form-fields">
               <label>Title</label>
               <input
@@ -54,4 +75,4 @@ const createProduct = (props)=>{
     );
 }
 
-export default createProduct;
+export default CreateProduct;
