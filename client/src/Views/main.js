@@ -6,11 +6,13 @@ import DisplayAll from '../components/DisplayAll';
 
 const Main = (props)=> {
 
+  const [productList, setProductList] = useState([]);
+
 
   return(
     <div>
-      <CreateProduct/>
-      <DisplayAll/>
+      <CreateProduct productList={productList} setProductList={setProductList}/>
+      <DisplayAll productList={productList} setProductList={setProductList}/>
     </div>
   )
 
