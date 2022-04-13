@@ -25,7 +25,7 @@ const DisplayAll = (props)=> {
       {
         productList.map((product, index)=>(
           <div key={product._id}>
-            <Link to={`/product/${product._id}`}>{product.title}</Link>
+            <Link className="productList" to={`/product/${product._id}`}>{product.title}</Link>
           </div>
         ))
       }
