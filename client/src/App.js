@@ -1,6 +1,7 @@
 import './App.css';
 import OneProduct from './components/OneProduct';
 import Main from './Views/main';
+import UpdateProduct from './components/UpdateProduct';
 import{BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main/>}/>
         <Route path="/product/:id" element={<OneProduct/>}/>
+        <Route path="/product/edit/:id" element={<UpdateProduct/>}/>
       </Routes>
     </div>
     </BrowserRouter>

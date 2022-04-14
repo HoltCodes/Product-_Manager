@@ -1,12 +1,12 @@
 import React, {useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const OneProduct = (props)=> {
 
   const {id} = useParams();
-
   const[oneProduct, setOneProduct] = useState({});
+  const navigate = useNavigate();
 
   useEffect(()=>{
     axios.get(`http://localhost:8000/api/products/${id}`)
@@ -18,12 +18,23 @@ const OneProduct = (props)=> {
       .catch((err)=>console.log(err))
   }, [id])
 
+  const deleteFilter = () => {
+    axios.delete(`http://localhost:8000/api/products/${id}`)
+    .then((res)=>{
+      console.log(res.data);
+      navigate("/")
+    })
+    .catch((err)=>console.log(err))
+  }
+
   return(
     <div className="oneProduct-component">
       <h2>{oneProduct.title}</h2>
-      <p>Price: ${oneProduct.price} </p>
+      <p>Price: ${oneProduct.price}</p>
       <p>Description: {oneProduct.description}</p>
-      
+      <br/>
+      <button onClick={deleteFilter} className="delete">Delete</button>
+      <Link to={"/"} className="link" >Go Home</Link>
     </div>
   )
 }
