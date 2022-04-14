@@ -35,8 +35,8 @@ const DisplayAll = (props)=> {
         productList.map((product, index)=>(
           <div key={product._id}>
             <Link className="productList" to={`/product/${product._id}`}>{product.title}</Link>
-            <Link to={`/product/edit/${product._id}`} className="link">Edit</Link>
-            <button onClick={()=>deleteFilter(product._id)} className="delete">Delete</button>
+            <Link to={`/product/edit/${product._id}`} className="btn">Edit</Link>
+            <button onClick={()=>deleteFilter(product._id)} className="btn">Delete</button>
           </div>
         ))
       }

@@ -82,7 +82,7 @@ const submitHandler = (e)=>{
             <input type="submit" className="submit-update" value="Update" />
           </form>
 
-          <Link to={"/"} className="link">Go Home</Link>
+          <Link to={"/"} className="btn">Go Home</Link>
     </div>
   )
 }

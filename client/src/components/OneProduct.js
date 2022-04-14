@@ -33,8 +33,8 @@ const OneProduct = (props)=> {
       <p>Price: ${oneProduct.price}</p>
       <p>Description: {oneProduct.description}</p>
       <br/>
-      <button onClick={deleteFilter} className="delete">Delete</button>
-      <Link to={"/"} className="link" >Go Home</Link>
+      <button onClick={deleteFilter} className="btn">Delete</button>
+      <Link to={"/"} className="btn" >Go Home</Link>
     </div>
   )
 }
